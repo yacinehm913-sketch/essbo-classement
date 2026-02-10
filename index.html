@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESSBO CLASSEMENT - ترتيب المعدلات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2A4365;
+            --secondary: #3182CE;
+            --accent: #ED8936;
+            --success: #38A169;
+            --danger: #E53E3E;
+            --light: #F7FAFC;
+            --dark: #1A202C;
+            --gradient: linear-gradient(135deg, #2A4365 0%, #3182CE 100%);
+        }
+        
+        * {
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+            margin: 0;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            background: var(--gradient);
+            color: white;
+            padding: 35px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .logo {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .year {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .designer {
+            position: absolute;
+            left: 30px;
+            bottom: 15px;
+            font-size: 13px;
+            opacity: 0.8;
+            z-index: 1;
+        }
+        
+        .tabs {
+            display: flex;
+            background: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 18px;
+            color: #64748b;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab:hover {
+            color: var(--secondary);
+            background: #f1f5f9;
+        }
+        
+        .tab.active {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+            background: white;
+        }
+        
+        .tab i {
+            margin-left: 8px;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 16px;
+        }
+        
+        .form-group label i {
+            margin-left: 8px;
+            color: var(--secondary);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 18px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .form-input:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+        }
+        
+        .btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(49, 130, 206, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: var(--dark);
+            border: 2px solid #cbd5e0;
+        }
+        
+        .btn-secondary:hover {
+            background: #e2e8f0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-top: 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        thead {
+            background: var(--gradient);
+        }
+        
+        th {
+            padding: 22px 20px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            border: none;
+        }
+        
+        th:first-child {
+            border-radius: 15px 0 0 0;
+        }
+        
+        th:last-child {
+            border-radius: 0 15px 0 0;
+        }
+        
+        td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 16px;
+        }
+        
+        tr:hover {
+            background: #f8fafc;
+        }
+        
+        .rank {
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .gold-rank { color: #FFD700; }
+        .silver-rank { color: #C0C0C0; }
+        .bronze-rank { color: #CD7F32; }
+        
+        .student-name {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 17px;
+        }
+        
+        .grade {
+            font-weight: 800;
+            font-size: 20px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            min-width: 100px;
+        }
+        
+        .grade-success {
+            background: rgba(56, 161, 105, 0.15);
+            color: var(--success);
+            border: 2px solid rgba(56, 161, 105, 0.3);
+        }
+        
+        .grade-danger {
+            background: rgba(229, 62, 62, 0.15);
+            color: var(--danger);
+            border: 2px solid rgba(229, 62, 62, 0.3);
+        }
+        
+        .message {
+            padding: 18px 25px;
+            margin: 25px 0;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            display: none;
+            animation: slideIn 0.4s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .message-success {
+            background: rgba(56, 161, 105, 0.1);
+            color: var(--success);
+            border: 2px solid rgba(56, 161, 105, 0.2);
+        }
+        
+        .message-error {
+            background: rgba(229, 62, 62, 0.1);
+            color: var(--danger);
+            border: 2px solid rgba(229, 62, 62, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 150px;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--secondary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #718096;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #718096;
+        }
+        
+        .fa-spin {
+            animation: fa-spin 1s infinite linear;
+        }
+        
+        @keyframes fa-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 20px;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .header {
+                padding: 25px 20px;
+            }
+            
+            .logo {
+                font-size: 32px;
+            }
+            
+            .designer {
+                position: relative;
+                left: 0;
+                bottom: 0;
+                margin-top: 10px;
+            }
+            
+            th, td {
+                padding: 15px 12px;
+                font-size: 15px;
+            }
+            
+            .grade {
+                font-size: 18px;
+                min-width: 80px;
+                padding: 6px 15px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat-box {
+                min-width: 100%;
+            }
+        }
+        
+        /* تصميم الميداليات */
+        .medal {
+            font-size: 24px;
+        }
+        
+        .gold-medal {
+            color: #FFD700;
+            text-shadow: 0 2px 4px rgba(255, 215, 0, 0.3);
+        }
+        
+        .silver-medal {
+            color: #C0C0C0;
+            text-shadow: 0 2px 4px rgba(192, 192, 192, 0.3);
+        }
+        
+        .bronze-medal {
+            color: #CD7F32;
+            text-shadow: 0 2px 4px rgba(205, 127, 50, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                ESSBO <span>CLASSEMENT</span>
+            </div>
+            <div class="subtitle">نظام ترتيب المعدلات الدراسية</div>
+            <div class="year">صنع سنة 2026</div>
+            <div class="designer">
+                <i class="fas fa-user-circle"></i> مصمم الموقع: HOCINE MHAMED YACINE
+            </div>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('add')">
+                <i class="fas fa-plus-circle"></i> إضافة معدل جديد
+            </div>
+            <div class="tab" onclick="showTab('view')">
+                <i class="fas fa-list-ol"></i> عرض الترتيب
+            </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Tab 1: Add Grade -->
+            <div id="addTab">
+                <div class="form-container">
+                    <div class="form-group">
+                        <label for="name">
+                            <i class="fas fa-user-graduate"></i> الاسم الكامل
+                        </label>
+                        <input type="text" id="name" class="form-input" placeholder="أدخل اسمك الثلاثي">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="grade">
+                            <i class="fas fa-chart-line"></i> المعدل (من 20)
+                        </label>
+                        <input type="number" id="grade" class="form-input" min="0" max="20" step="0.01" placeholder="مثال: 16.75">
+                        <small style="color: #718096; margin-top: 5px; display: block;">
+                            المعدل من 0 إلى 20. أقل من 10 سيكون باللون الأحمر
+                        </small>
+                    </div>
+                    
+                    <div id="message" class="message"></div>
+                    
+                    <button class="btn" onclick="addGrade()">
+                        <i class="fas fa-paper-plane"></i> إضافة المعدل إلى النظام
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Tab 2: View Ranking -->
+            <div id="viewTab" style="display: none;">
+                <button class="btn btn-secondary" onclick="loadGrades()" style="margin-bottom: 20px;">
+                    <i class="fas fa-sync-alt"></i> تحديث القائمة
+                </button>
+                
+                <!-- Stats -->
+                <div class="stats" id="stats" style="display: none;">
+                    <div class="stat-box">
+                        <span class="stat-value" id="totalStudents">0</span>
+                        <span class="stat-label">عدد الطلاب</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="averageGrade">0.00</span>
+                        <span class="stat-label">متوسط المعدل</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="highestGrade">0.00</span>
+                        <span class="stat-label">أعلى معدل</span>
+                    </div>
+                </div>
+                
+                <!-- Grades Table -->
+                <div class="table-container">
+                    <table id="gradesTable">
+                        <thead>
+                            <tr>
+                                <th width="15%">الترتيب</th>
+                                <th width="55%">اسم الطالب</th>
+                                <th width="30%">المعدل</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gradesList">
+                            <tr>
+                                <td colspan="3" class="loading">
+                                    <i class="fas fa-spinner fa-spin" style="font-size: 30px; margin-bottom: 15px;"></i>
+                                    <br>جاري تحميل بيانات الطلاب...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div>جميع الحقوق محفوظة © ESSBO CLASSEMENT 2026</div>
+            <div style="margin-top: 10px; font-size: 13px;">
+                يتم تحديث البيانات تلقائياً لكل الطلاب في الوقت الحقيقي
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase & App Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <!-- Firebase Config -->
+    <script>
+        // 🔥 أضف إعدادات Firebase الخاصة بك هنا
+        const firebaseConfig = {
+            apiKey: "ضع_مفتاح_API_هنا",
+            authDomain: "student-grades.firebaseapp.com",
+            projectId: "student-grades",
+            storageBucket: "student-grades.appspot.com",
+            messagingSenderId: "1234567890",
+            appId: "1:1234567890:web:abcdef123456"
+        };
+        
+        // تهيئة Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+    
+    <!-- App Logic -->
+    <script>
+        // دالة إضافة المعدل
+        function addGrade() {
+            const name = document.getElementById('name').value.trim();
+            const grade = parseFloat(document.getElementById('grade').value);
+            
+            if (!name) {
+                showMessage('الرجاء إدخال الاسم الكامل', 'error');
+                return;
+            }
+            
+            if (isNaN(grade) || grade < 0 || grade > 20) {
+                showMessage('الرجاء إدخال معدل صحيح بين 0 و 20', 'error');
+                return;
+            }
+            
+            // إضافة إلى قاعدة البيانات
+            db.collection('grades').add({
+                name: name,
+                grade: grade,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            .then(() => {
+                showMessage(`تم إضافة معدل ${grade} للطالب ${name} بنجاح!`, 'success');
+                document.getElementById('name').value = '';
+                document.getElementById('grade').value = '';
+                
+                // إذا كان في صفحة العرض، قم بتحديث القائمة
+                if (document.getElementById('viewTab').style.display !== 'none') {
+                    loadGrades();
+                }
+            })
+            .catch(error => {
+                showMessage('حدث خطأ: ' + error.message, 'error');
+                console.error('Error adding grade:', error);
+            });
+        }
+        
+        // دالة تحميل وعرض المعدلات
+        function loadGrades() {
+            const gradesList = document.getElementById('gradesList');
+            gradesList.innerHTML = `
+                <tr>
+                    <td colspan="3" class="loading">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 30px; margin-bottom: 15px;"></i>
+                        <br>جاري تحميل بيانات الطلاب...
+                    </td>
+                </tr>
+            `;
+            
+            db.collection('grades')
+                .orderBy('grade', 'desc')
+                .get()
+                .then(querySnapshot => {
+                    gradesList.innerHTML = '';
+                    
+                    let total = 0;
+                    let highest = 0;
+                    let rank = 1;
+                    
+                    querySnapshot.forEach(doc => {
+                        const data = doc.data();
+                        const grade = data.grade;
+                        
+                        total += grade;
+                        if (grade > highest) highest = grade;
+                        
+                        // إعداد التصنيف
+                        let rankClass = '';
+                        let medal = '';
+                        
+                        if (rank === 1) {
+                            rankClass = 'gold-rank';
+                            medal = '<span class="medal gold-medal">🥇</span>';
+                        } else if (rank === 2) {
+                            rankClass = 'silver-rank';
+                            medal = '<span class="medal silver-medal">🥈</span>';
+                        } else if (rank === 3) {
+                            rankClass = 'bronze-rank';
+                            medal = '<span class="medal bronze-medal">🥉</span>';
+                        }
+                        
+                        // تحديد لون المعدل
+                        const gradeClass = grade >= 10 ? 'grade-success' : 'grade-danger';
+                        
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>
+                                <div class="rank ${rankClass}">
+                                    ${medal}
+                                    ${rank}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="student-name">
+                                    <i class="fas fa-user" style="margin-left: 8px; color: #718096;"></i>
+                                    ${data.name}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="grade ${gradeClass}">
+                                    ${grade.toFixed(2)}
+                                </div>
+                            </td>
+                        `;
+                        gradesList.appendChild(row);
+                        rank++;
+                    });
+                    
+                    // تحديث الإحصائيات
+                    const totalStudents = querySnapshot.size;
+                    const average = totalStudents > 0 ? total / totalStudents : 0;
+                    
+                    document.getElementById('stats').style.display = 'flex';
+                    document.getElementById('totalStudents').textContent = totalStudents;
+                    document.getElementById('averageGrade').textContent = average.toFixed(2);
+                    document.getElementById('highestGrade').textContent = highest.toFixed(2);
+                    
+                    // إذا لم توجد بيانات
+                    if (totalStudents === 0) {
+                        gradesList.innerHTML = `
+                            <tr>
+                                <td colspan="3" style="text-align: center; padding: 60px 20px;">
+                                    <i class="fas fa-inbox" style="font-size: 50px; color: #CBD5E0; margin-bottom: 20px;"></i>
+                                    <br>
+                                    <div style="font-size: 18px; color: #718096; margin-bottom: 10px;">
+                                        لا توجد بيانات حتى الآن
+                                    </div>
+                                    <div style="color: #A0AEC0;">
+                                        كن أول من يضيف معدله!
+                                    </div>
+                                </td>
+                            </tr>
+                        `;
+                    }
+                })
+                .catch(error => {
+                    gradesList.innerHTML = `
+                        <tr>
+                            <td colspan="3" style="text-align: center; padding: 40px; color: #E53E3E;">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <br>حدث خطأ في تحميل البيانات
+                                <br><small>${error.message}</small>
+                            </td>
+                        </tr>
+                    `;
+                    console.error('Error loading grades:', error);
+                });
+        }
+        
+        // دالة عرض الرسائل
+        function showMessage(text, type) {
+            const msg = document.getElementById('message');
+            msg.textContent = text;
+            msg.className = `message message-${type}`;
+            msg.style.display = 'block';
+            
+            setTimeout(() => {
+                msg.style.display = 'none';
+            }, 5000);
+        }
+        
+        // دالة تبديل التبويبات
+        function showTab(tabName) {
+            document.getElementById('addTab').style.display = tabName === 'add' ? 'block' : 'none';
+            document.getElementById('viewTab').style.display = tabName === 'view' ? 'block' : 'none';
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            event.currentTarget.classList.add('active');
+            
+            if (tabName === 'view') {
+                loadGrades();
+            }
+        }
+        
+        // تحميل البيانات عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحميل الإحصائيات مباشرة
+            loadGrades();
+        });
+    </script>
+</body>
+</html>
